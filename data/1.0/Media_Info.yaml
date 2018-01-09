@@ -1,0 +1,59 @@
+Media Info:
+  name: Media Info 1.0
+  description: |
+    Content Pipeline Media Info 1.0. This is the *root* document object for the Mp4 & Mov MetaData. 
+  fields:
+    - name: version
+      type: string
+      required: true
+      description: |
+        Specifies the Media Info version being used.  
+      values:
+        - value: "1.0"
+          description: The value MUST be 1.0
+    - name: fileName
+      type: string
+      required: true
+      description: |
+        Name of the media file.
+    - name: fileID
+      type: string
+      required: true
+      description: |
+        ID of the media file.
+    - name: fileUrl
+      type: string
+      required: true
+      description: |
+        The source url of the media file, including both audio and video, should be a http address in S3.
+    - name : audioUrl
+      type: string
+      required: true
+      description: |
+        The source url of the media audio stream, including audio only, should be a http address in S3.
+    - name: fileSize
+      type: integer
+      required: true
+      description: |
+        Size of the original file.
+    - name: duration
+      type: integer
+      required: true
+      description: |
+        Duration of the whole media file.
+    - name: videos
+      type: "[Video Stream]"
+      description: |
+        A list of tags used by the specification with additional metadata.  
+        The order of the tags can be used to reflect on their order by the parsing tools.  
+        Not all tags that are used by the *Operation Object* must be declared.  
+        The tags that are not declared may be organized randomly or based on the tools' logic.  
+        Each tag name in the list MUST be unique.
+    - name: audios
+      type: "[Audio Stream]"
+      description: |
+        A list of tags used by the specification with additional metadata.  
+        The order of the tags can be used to reflect on their order by the parsing tools.  
+        Not all tags that are used by the *Operation Object* must be declared.  
+        The tags that are not declared may be organized randomly or based on the tools' logic.  
+        Each tag name in the list MUST be unique.
