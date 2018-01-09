@@ -44,16 +44,16 @@ Media Info:
     - name: videos
       type: "[Video Stream]"
       description: |
-        A list of tags used by the specification with additional metadata.  
-        The order of the tags can be used to reflect on their order by the parsing tools.  
-        Not all tags that are used by the *Operation Object* must be declared.  
-        The tags that are not declared may be organized randomly or based on the tools' logic.  
-        Each tag name in the list MUST be unique.
+        A list of video streams.  
+        The order of the streams can be used to reflect on their order.  
     - name: audios
       type: "[Audio Stream]"
       description: |
-        A list of tags used by the specification with additional metadata.  
-        The order of the tags can be used to reflect on their order by the parsing tools.  
-        Not all tags that are used by the *Operation Object* must be declared.  
-        The tags that are not declared may be organized randomly or based on the tools' logic.  
-        Each tag name in the list MUST be unique.
+        A list of audio streams.  
+        The order of the streams can be used to reflect on their order.  
+    - name: subtitles
+      type: "[Subtitle Stream]"
+      description: |
+        A list of subtitle streams.  
+        The order of the streams can be used to reflect on their order.  
+

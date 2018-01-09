@@ -1,19 +1,54 @@
 Audio Stream:
   description: |
-    Allows adding meta data to a single tag that is used by the *Operation Object*.  
-    It is not mandatory to have a Tag Object per tag used there.
+    All meta info to describe the audio stream.
   fields:
     -
-      name: name
+      name: codecName
       type: string
-      description: The name of the tag.
+      description: Name of the codec
       required: true
     -
-      name: description
+      name: codecFullName
       type: string
-      description: A short description for the tag.
-      md: GFM
+      description: Fullname of the codec
+      required: true
     -
-      name: externalDocs
-      type: ExternalDocumentation
-      description: Additional external documentation for this tag.
+      name: profile
+      type: string
+      description: Profile of audio codec
+    -
+      name: timeBase
+      type: string
+      description: Timebase for audio stream
+    -
+      name: sampleFmt
+      type: string
+      description: sample format of the audio stream
+    -
+      name: sampleRate
+      type: integer
+      description: sample rate of the audio stream
+    -
+      name: startPts
+      type: integer
+      description: start pts of the audio stream
+    -
+      name: startTime
+      type: integer
+      description: start time of the audio stream
+    -
+      name: duration
+      type: float
+      description: duration of the audio stream
+    -
+      name: bitrate
+      type: integer
+      description: bitrate of the audio stream
+    -
+      name: framesCount
+      type: integer
+      description: frames count of the audio stream
+    -
+      name: channel
+      type: integer
+      description: channel count of the audio stream
