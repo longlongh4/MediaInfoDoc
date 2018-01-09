@@ -3,6 +3,8 @@ This is a tree rendering of the Media Info Structure to provide an easy to read 
 
 This project is based on [OpenAPI Specification Visual Documentation](https://github.com/arno-di-loreto/openapi-specification-visual-documentation) Repo.
 
+You can check the [Online Doc](https://longlongh4.github.io/MediaInfoDoc/) here.
+
 ## Licence
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
