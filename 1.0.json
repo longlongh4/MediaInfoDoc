@@ -1,0 +1,236 @@
+{
+    "Audio Stream": {
+        "description": "All meta info to describe the audio stream.\n",
+        "fields": [{
+            "name": "codecName",
+            "type": "string",
+            "description": "Name of the codec",
+            "required": true
+        }, {
+            "name": "codecFullName",
+            "type": "string",
+            "description": "Fullname of the codec",
+            "required": true
+        }, {
+            "name": "profile",
+            "type": "string",
+            "description": "Profile of audio codec"
+        }, {
+            "name": "timeBase",
+            "type": "string",
+            "description": "Timebase for audio stream"
+        }, {
+            "name": "sampleFmt",
+            "type": "string",
+            "description": "sample format of the audio stream"
+        }, {
+            "name": "sampleRate",
+            "type": "integer",
+            "description": "sample rate of the audio stream"
+        }, {
+            "name": "startPts",
+            "type": "integer",
+            "description": "start pts of the audio stream"
+        }, {
+            "name": "startTime",
+            "type": "integer",
+            "description": "start time of the audio stream"
+        }, {
+            "name": "duration",
+            "type": "float",
+            "description": "duration of the audio stream"
+        }, {
+            "name": "bitrate",
+            "type": "integer",
+            "description": "bitrate of the audio stream"
+        }, {
+            "name": "framesCount",
+            "type": "integer",
+            "description": "frames count of the audio stream"
+        }, {
+            "name": "channel",
+            "type": "integer",
+            "description": "channel count of the audio stream"
+        }]
+    },
+    "H264 Stream": {
+        "description": "Decoding and encoding paramters for h264 stream\n",
+        "fields": [{
+            "name": "SPS",
+            "type": "bytes",
+            "description": "Picture Parameter Set",
+            "required": true
+        }, {
+            "name": "PPS",
+            "type": "string",
+            "description": "Sequence Parameter Set",
+            "required": true
+        }]
+    },
+    "Key Frame": {
+        "description": "All Key frame info we need to split the video stream.\n",
+        "fields": [{
+            "name": "index",
+            "type": "integer",
+            "description": "The index of this keyframe in all frames, including I, P, B frames",
+            "required": true
+        }, {
+            "name": "time",
+            "type": "float",
+            "description": "time offset of this keyframe",
+            "required": true
+        }, {
+            "name": "offset",
+            "type": "integer",
+            "description": "The offset of this keyframe in the media file, use this to seek the file or do http byte-range download",
+            "required": true
+        }, {
+            "name": "chunkSize",
+            "type": "integer",
+            "description": "size of this GOP (group of pictures)",
+            "required": true
+        }]
+    },
+    "Media Info": {
+        "name": "Media Info 1.0",
+        "description": "Content Pipeline Media Info 1.0. This is the *root* document object for the Mp4 & Mov MetaData. \n",
+        "fields": [{
+            "name": "version",
+            "type": "string",
+            "required": true,
+            "description": "Specifies the Media Info version being used.  \n",
+            "values": [{
+                "value": "1.0",
+                "description": "The value MUST be 1.0"
+            }]
+        }, {
+            "name": "fileName",
+            "type": "string",
+            "required": true,
+            "description": "Name of the media file.\n"
+        }, {
+            "name": "fileID",
+            "type": "string",
+            "required": true,
+            "description": "ID of the media file.\n"
+        }, {
+            "name": "fileUrl",
+            "type": "string",
+            "required": true,
+            "description": "The source url of the media file, including both audio and video, should be a http address in S3.\n"
+        }, {
+            "name": "audioUrl",
+            "type": "string",
+            "required": true,
+            "description": "The source url of the media audio stream, including audio only, should be a http address in S3.\n"
+        }, {
+            "name": "fileSize",
+            "type": "integer",
+            "required": true,
+            "description": "Size of the original file.\n"
+        }, {
+            "name": "duration",
+            "type": "integer",
+            "required": true,
+            "description": "Duration of the whole media file.\n"
+        }, {
+            "name": "videos",
+            "type": "[Video Stream]",
+            "description": "A list of video streams.  \nThe order of the streams can be used to reflect on their order.  \n"
+        }, {
+            "name": "audios",
+            "type": "[Audio Stream]",
+            "description": "A list of audio streams.  \nThe order of the streams can be used to reflect on their order.  \n"
+        }, {
+            "name": "subtitles",
+            "type": "[Subtitle Stream]",
+            "description": "A list of subtitle streams.  \nThe order of the streams can be used to reflect on their order.  \n"
+        }]
+    },
+    "Subtitle Stream": {
+        "description": "Allows adding meta data to a single tag that is used by the *Operation Object*.  \nIt is not mandatory to have a Tag Object per tag used there.\n",
+        "fields": [{
+            "name": "name",
+            "type": "string",
+            "description": "The name of the tag.",
+            "required": true
+        }, {
+            "name": "description",
+            "type": "string",
+            "description": "A short description for the tag.",
+            "md": "GFM"
+        }, {
+            "name": "externalDocs",
+            "type": "ExternalDocumentation",
+            "description": "Additional external documentation for this tag."
+        }]
+    },
+    "Video Stream": {
+        "description": "All meta info to describe the video stream.\n",
+        "fields": [{
+            "name": "codecName",
+            "type": "string",
+            "description": "Name of the codec",
+            "required": true
+        }, {
+            "name": "codecFullName",
+            "type": "string",
+            "description": "Fullname of the codec",
+            "required": true
+        }, {
+            "name": "width",
+            "type": "integer",
+            "description": "Width of the video stream",
+            "required": true
+        }, {
+            "name": "height",
+            "type": "integer",
+            "description": "Height of the video stream",
+            "required": true
+        }, {
+            "name": "profile",
+            "type": "string",
+            "description": "Profile of h264 codec"
+        }, {
+            "name": "timeBase",
+            "type": "string",
+            "description": "Timebase for video stream"
+        }, {
+            "name": "hasBFrames",
+            "type": "int",
+            "description": "Whether has b frames in the video stream"
+        }, {
+            "name": "pixFmt",
+            "type": "string",
+            "description": "pixel format of the video stream"
+        }, {
+            "name": "startPts",
+            "type": "integer",
+            "description": "start pts of the video stream"
+        }, {
+            "name": "startTime",
+            "type": "integer",
+            "description": "start time of the video stream"
+        }, {
+            "name": "duration",
+            "type": "float",
+            "description": "duration of the video stream"
+        }, {
+            "name": "bitrate",
+            "type": "integer",
+            "description": "bitrate of the video stream"
+        }, {
+            "name": "framesCount",
+            "type": "integer",
+            "description": "frames count of the video stream including I,P,B frames"
+        }, {
+            "name": "keyFrames",
+            "type": "[Key Frame]",
+            "description": "A list of key frames.  \nThe order of the streams can be used to reflect on their order. \n"
+        }, {
+            "name": "h264Stream",
+            "type": "H264 Stream",
+            "description": "h264 stream parameters\n"
+        }]
+    }
+}
